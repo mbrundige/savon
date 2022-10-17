@@ -261,6 +261,7 @@ module Savon
     def init_multipart_message(message_xml)
       multipart_message = Mail.new
       multipart_message.transport_encoding = 'binary'
+      message_xml.force_encoding('BINARY')
 
       xml_part = Mail::Part.new do
         content_type 'text/xml'
