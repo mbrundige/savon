@@ -473,6 +473,14 @@ module Savon
     def advanced_typecasting(advanced)
       @options[:advanced_typecasting] = advanced
     end
+    
+    def xml_encoding(encoding)
+      @options[:xml_encoding] = encoding
+    end
+
+    def message_encoding(encoding)
+      @options[:message_encoding] = encoding
+    end
 
     # Instruct Nori to use :rexml or :nokogiri to parse the response.
     def response_parser(parser)
