@@ -390,7 +390,7 @@ module Savon
         :advanced_typecasting => true,
         :response_parser      => :nokogiri,
         :multipart            => false,
-        :xml_encoding         => '7bit',
+        :xml_encoding         => '8bit',
         :message_encoding     => 'binary'
       }
 
