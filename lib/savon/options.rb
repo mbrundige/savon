@@ -389,7 +389,9 @@ module Savon
       defaults = {
         :advanced_typecasting => true,
         :response_parser      => :nokogiri,
-        :multipart            => false
+        :multipart            => false,
+        :xml_encoding         => '7bit',
+        :message_encoding     => 'binary'
       }
 
       super defaults.merge(options)

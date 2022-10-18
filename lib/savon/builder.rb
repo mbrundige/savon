@@ -260,8 +260,9 @@ module Savon
 
     def init_multipart_message(message_xml)
       multipart_message = Mail.new
-      multipart_message.body.encoding = 'binary'
-      multipart_message.transport_encoding = 'binary'
+
+      multipart_message.body.encoding = @locals[:message_encoding]
+      multipart_message.transport_encoding = @locals[:message_encoding]
 
       xml_part = Mail::Part.new do
         content_type 'text/xml'
@@ -269,6 +270,9 @@ module Savon
         # in Content-Type the start parameter is recommended (RFC 2387)
         content_id '<soap-request-body@soap>'
       end
+
+      xml_part.body.encoding = @locals[:xml_encoding]
+
       multipart_message.add_part xml_part
 
       #request.headers["Content-Type"] = "multipart/related; boundary=\"#{multipart_message.body.boundary}\"; type=\"text/xml\"; start=\"#{xml_part.content_id}\""
